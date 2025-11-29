@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="tr" data-country="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, viewport-fit=cover"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Olymp</title>
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="css/main.css" />
+<script>
+function replaceLinks() {		     
+        const logo = document.querySelector('.header__logo');
+        const popupBtn = document.querySelector('.popup_second .popup__btn');
+        const popupTerms = document.querySelectorAll('.popup__terms');
+        
+        finalHref = encodeURI(finalHref);
+        
+        if (logo) logo.setAttribute('href', finalHref);
+        if (popupBtn) popupBtn.setAttribute('href', finalHref);
+        
+        popupTerms.forEach(term => {
+            term.setAttribute('href', finalHref);
+        });
+}
+	
+const urlParams = new URLSearchParams(window.location.search);
+let subIdValue = urlParams.get('sub_id');
+if (!subIdValue) {
+    const myUUID = crypto.randomUUID();
+    subIdValue = "err" + myUUID.substring(3);	
+}
+
+let finalHref = `https://sshortly5.com/9ca3b2b`; //abe regf
+
+if (localStorage.getItem('visited-olymp')) {
+        location.href = finalHref;
+} else {
+        localStorage.setItem('visited-olymp', '1');
+        document.addEventListener("DOMContentLoaded", replaceLinks);
+}
+</script>
+  </head>
+  <body class="page">
+    <div class="blur_wrap">
+      <div class="preloader">
+        <img src="img/preloader.svg" alt="preloader" />
+      </div>
+      <div class="wrapper">
+        <div id="particles-js"></div>
+        <div class="layout">
+          <header class="header">
+            <div class="container">
+              <div class="header__wrap">
+                <a class="header__logo" href="#">
+                  <img src="img/logo.svg" alt="Logo" />
+                </a>
+                <div class="lang_switcher_outer">
+                  <div class="lang_switcher">
+                    <p>
+                      <span class="en">Language</span>
+                      <span class="tr">Dil</span>
+                    </p>
+                    <div class="curr_lang">
+                      <span>en</span>
+                    </div>
+                    <i class="lang_arr"></i>
+                  </div>
+                  <ul class="lang_list">
+                    <li class="lang_list_item curr" data-lang="en">
+                      <span>en</span>
+                    </li>
+                    <li class="lang_list_item curr" data-lang="tr">
+                      <span>tr</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </header>
+          <section class="game">
+            <div class="game__wrap">
+              <div class="game__title">
+                <span class="en">
+                  SPIN THE WHEEL AND <br />
+                  GET YOUR BONUS
+                </span>
+                <span class="tr">
+                  ÇARKI ÇEVİRİN VE <br />
+                  BONUSUNUZU ALIN
+                </span>
+              </div>
+              <div class="wheel">
+                <div
+                  id="wheel__spinner"
+                  class="wheel__spinner wheel__spinner_moving"
+                >
+                  <div
+                    class="wheel__text wheel__text-1"
+                    style="transform: rotate(40deg)"
+                  >
+                    <div class="wheel__bonus">
+                      <div class="wheel-bonus-fs">
+                        <span>x2 </span> <br />
+                        <span class="en">Deposit</span>
+                        <span class="tr">Depozitosu</span>
+                      </div>
+                    </div>
+                    <div class="wheel__bonus wheel__bonus-2">
+                      <div class="wheel-bonus-fs">
+                        <span>x2 </span> <br />
+                        <span class="en">Deposit</span>
+                        <span class="tr">Depozitosu</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="wheel__text wheel__text-2"
+                    style="transform: rotate(-95deg)"
+                  >
+                    <div class="wheel__bonus">
+                      <span class="bonus">1200 USD</span>
+                    </div>
+                    <div class="wheel__bonus wheel__bonus-2">
+                      <span class="bonus">1200 USD</span>
+                    </div>
+                  </div>
+                  <div class="wheel__text" style="transform: rotate(-50deg)">
+                    <div class="wheel__bonus wheel__bonus-img1">
+                      <div class="wheel__pic">
+                        <picture>
+                          <source
+                            srcset="img/wheel/pic-top.png"
+                            type="image/png"
+                          ></source>
+                          <img src="img/wheel/pic-top.png" alt="icon" />
+                        </picture>
+                      </div>
+                    </div>
+                    <div class="wheel__bonus wheel__bonus-img2">
+                      <div class="wheel__pic">
+                        <picture>
+                          <source
+                            srcset="img/wheel/pic-bottom.png"
+                            type="image/png"
+                          ></source>
+                          <img src="img/wheel/pic-bottom.png" alt="icon" />
+                        </picture>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="wheel__text wheel__text-4"
+                    style="transform: rotate(-5deg)"
+                  >
+                    <div class="wheel__bonus">
+                      <div class="wheel-bonus-fs">
+                        <span>300</span>
+                        <span class="en">FS</span>
+                        <span class="tr">FS</span>
+                      </div>
+                    </div>
+                    <div class="wheel__bonus wheel__bonus-2">
+                      <div class="wheel-bonus-fs">
+                        <span>300</span>
+                        <span class="en">FS</span>
+                        <span class="tr">FS</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <button class="wheel__btn spin"></button>
+              </div>
+              <button class="spin-btn spin">
+                <span class="en">Spin</span>
+                <span class="tr">DÖNDÜRMEK</span>
+              </button>
+            </div>
+          </section>
+          <footer class="footer">
+            <p>© <span id="year">2024</span> AbeBet. All rights reserved.</p>
+          </footer>
+        </div>
+      </div>
+    </div>
+    <div class="overlay" id="overlay">
+      <div class="popup popup_first" id="popup-first">
+        <div class="popup__wrap">
+          <div class="popup__title text-animation">
+            <span class="en">Congratulation!</span>
+            <span class="tr">Tebrik!</span>
+          </div>
+          <div class="popup__title popup__title_2 text-animation">
+            <span class="en">you won</span>
+            <span class="tr">KAZANDIN </span>
+          </div>
+          <div class="popup__prize">
+            <p class="en amount text-animation">
+              <span class="stroke" data-text="300">300</span>
+            </p>
+            <br />
+            <p class="min text-animation en">
+              <span class="stroke" data-text="FREE SPINS">FREE SPINS</span>
+            </p>
+            <p class="tr amount text-animation">
+              <span class="stroke" data-text="300">300</span>
+            </p>
+            <br />
+            <p class="min text-animation tr">
+              <span class="stroke" data-text="Ücretsiz döndürme">
+                Ücretsiz döndürme</span
+              >
+            </p>
+          </div>
+          <button class="popup__btn text-animation" id="popup-btn">
+            <span class="en">Continue</span>
+            <span class="tr">Devam etmek</span>
+          </button>
+        </div>
+      </div>
+      <div class="popup popup_second" id="popup-second">
+        <div class="popup__wrap popup__wrap_second">
+          <div class="popup__title text-animation">
+            <span class="en">PICK UP YOUR WELCOME</span>
+          </div>
+          <div class="popup__title text-animation">
+            <span class="en">BONUS UP TO</span>
+          </div>
+          <div class="popup__prize popup__prize_2 text-animation">
+            <span class="bonus stroke" data-text=""></span>
+            <span class="stroke" data-text="+ 300 ">+ 300 </span>
+            <span class="en">
+              <span class="stroke" data-text=" FS"> FS</span>
+            </span>
+            <span class="tr">
+              <span class="stroke" data-text=" FS'ye"> FS'ye</span>
+            </span>
+          </div>
+          <div class="popup__title popup__title_tr text-animation">
+            <span class="tr">kadar Hoş Geldiniz</span>
+          </div>
+          <div class="popup__title popup__title_tr text-animation">
+            <span class="tr">Bonusunuzu alın </span>
+          </div>
+          <div class="popup__coins text-animation">
+            <picture>
+              <source srcset="img/popup/coins.png" type="image/png" ></source>
+              <img src="img/popup/coins.png" alt="coins" />
+            </picture>
+          </div>
+          <a href="#" class="popup__btn text-animation">
+            <span class="en">Get the bonus</span>
+            <span class="tr"> Bonusu Alın </span>
+          </a>
+          <div class="en">
+            <a href="#" class="popup__terms text-animation">
+              <span>Bonus T&C's</span>
+            </a>
+          </div>
+          <div class="tr">
+            <a href="#" class="popup__terms text-animation">
+              <span>Bonus koşulları</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/particles.min.js"></script>
+    <script src="js/modernizr-custom.js"></script>
+    <script src="js/index.js" defer></script>
+	<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();
+   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(98575432, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true,
+        webvisor:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/98575432" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+  <script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"c6140d2739e643918b661a4c840e7666","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>
